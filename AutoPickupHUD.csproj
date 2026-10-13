@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <LangVersion>latest</LangVersion>
     <AssemblyName>AutoPickupHUD</AssemblyName>
     <Description>Auto Pickup HUD Indicator for Valheim</Description>
@@ -9,51 +9,49 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
 
-    <ValheimDir>E:\SteamLibrary\steamapps\common\Valheim</ValheimDir>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- BepInEx & Harmony References -->
     <Reference Include="BepInEx">
-      <HintPath>$(ValheimDir)\BepInEx\core\BepInEx.dll</HintPath>
+      <HintPath>Libs\BepInEx.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>$(ValheimDir)\BepInEx\core\0Harmony.dll</HintPath>
+      <HintPath>Libs\0Harmony.dll</HintPath>
       <Private>false</Private>
     </Reference>
 
     <!-- Valheim Game Assemblies -->
     <Reference Include="assembly_valheim">
-      <HintPath>$(ValheimDir)\valheim_Data\Managed\assembly_valheim.dll</HintPath>
+      <HintPath>Libs\assembly_valheim.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="assembly_utils">
-      <HintPath>$(ValheimDir)\valheim_Data\Managed\assembly_utils.dll</HintPath>
+      <HintPath>Libs\assembly_utils.dll</HintPath>
       <Private>false</Private>
     </Reference>
 
     <!-- Unity Engine Assemblies -->
     <Reference Include="UnityEngine">
-      <HintPath>$(ValheimDir)\valheim_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>Libs\UnityEngine.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(ValheimDir)\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>$(ValheimDir)\valheim_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>Libs\UnityEngine.UI.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>$(ValheimDir)\valheim_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>$(ValheimDir)\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>Libs\Unity.TextMeshPro.dll</HintPath>
       <Private>false</Private>
   </Reference>
   </ItemGroup>
