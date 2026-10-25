@@ -44,12 +44,7 @@ with `VH001` instead of a list of missing types.
 
 ## Notes
 
-- Client-side only (`[BepInProcess("valheim.exe")]`); a dedicated server does not
-  need it.
-- The indicator mirrors `Player.m_enableAutoPickup`, i.e. the global auto pickup
-  toggle, so it applies to whoever is playing.
-- Originally vibecoded with Gemini; the HUD handling has since been reviewed and
-  reworked to reuse the vanilla status effect entry.
+- Originally vibecoded with Gemini and rework with Deepseek 4.1 so vibe is strong with this one.
 
 ## License
 
