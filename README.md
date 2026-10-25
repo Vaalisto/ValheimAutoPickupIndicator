@@ -48,7 +48,7 @@ with `VH001` instead of a list of missing types.
 
 ## Example image
 
-![example](autopickupexample.png)
+![example](autopickupexample.jpg)
 
 ## Notes
 
