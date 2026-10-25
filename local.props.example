@@ -1,0 +1,12 @@
+<Project>
+  <!--
+    Copy this file to local.props and set ValheimDir to your own Valheim install.
+    local.props is gitignored, so machine-specific paths never end up in the repo.
+
+    The folder must contain valheim_Data\Managed\assembly_valheim.dll and
+    BepInEx\core\BepInEx.dll (BepInEx 5 installed).
+  -->
+  <PropertyGroup>
+    <ValheimDir>C:\Program Files (x86)\Steam\steamapps\common\Valheim</ValheimDir>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,8 @@
+# Machine-local build settings
+local.props
+
+# Build output
+bin/
+obj/
+.vs/
+*.user

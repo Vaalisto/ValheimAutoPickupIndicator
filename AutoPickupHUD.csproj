@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Machine-local paths. Not committed; copy local.props.example to local.props. -->
+  <Import Project="local.props" Condition="Exists('local.props')" />
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>AutoPickupHUD</AssemblyName>
+    <Description>Auto Pickup HUD Indicator for Valheim</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+
+    <!-- Resolution order: local.props, then the VALHEIM_DIR environment variable,
+         then an explicit -p:ValheimDir="..." on the command line. -->
+    <ValheimDir Condition="'$(ValheimDir)' == ''">$(VALHEIM_DIR)</ValheimDir>
+    <ManagedDir>$(ValheimDir)\valheim_Data\Managed</ManagedDir>
+    <BepInExDir>$(ValheimDir)\BepInEx\core</BepInExDir>
+  </PropertyGroup>
+
+  <!-- Fail with a readable message instead of a wall of missing-type errors. -->
+  <Target Name="ValidateValheimDir" BeforeTargets="PrepareForBuild"
+          Condition="!Exists('$(ManagedDir)\assembly_valheim.dll')">
+    <Error Code="VH001"
+           Text="Valheim assemblies not found. Copy local.props.example to local.props and set ValheimDir, set the VALHEIM_DIR environment variable, or build with -p:ValheimDir=path. Current value: '$(ValheimDir)'" />
+  </Target>
+
+  <ItemGroup>
+    <!-- BepInEx & Harmony -->
+    <Reference Include="BepInEx">
+      <HintPath>$(BepInExDir)\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(BepInExDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Valheim game assemblies -->
+    <Reference Include="assembly_valheim">
+      <HintPath>$(ManagedDir)\assembly_valheim.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="assembly_utils">
+      <HintPath>$(ManagedDir)\assembly_utils.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Unity Engine Assemblies -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(ManagedDir)\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ManagedDir)\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(ManagedDir)\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
