@@ -22,7 +22,8 @@ The project references the game and engine assemblies from your own Valheim
 install. No game or Unity assemblies are stored in this repository, so you need a
 legitimate copy of the game to compile it.
 
-Copy `local.props.example` to `local.props` and point `ValheimDir` at your
+Either:
+- Copy `local.props.example` to `local.props` and point `ValheimDir` at your
    install:
 
    ```xml
@@ -30,17 +31,8 @@ Copy `local.props.example` to `local.props` and point `ValheimDir` at your
    ```
 
    `local.props` is gitignored, so your path stays out of the repository.
-3. Build:
 
-   ```powershell
-   dotnet build -c Release
-   ```
-
-4. The plugin is written to `bin\Release\net472\AutoPickupHUD.dll`.
-
-`ValheimDir` can also be supplied without `local.props`:
-
-- set a `VALHEIM_DIR` environment variable, or
+or:
 - pass it for a single build: `dotnet build -p:ValheimDir="D:\Games\Valheim"`.
 
 If the path is wrong, or BepInEx is not installed in that folder, the build stops
